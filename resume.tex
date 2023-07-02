@@ -164,8 +164,8 @@
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   \textbf{\Huge Garfield Lee \vspace{2pt}} & % row = 1, col = 1
   Location: Shanghai, China \\ % row = 1, col = 2
-  \href{https://550.moe}{\uline{550.moe}} $|$ % row = 2, col = 1
-  \href{https://www.linkedin.com/in/garfieldlee}{\uline{LinkedIn}} $|$ % row = 2, col = 1
+  \href{https://550.moe/}{\uline{550.moe}} $|$ % row = 2, col = 1
+  \href{https://www.linkedin.com/in/garfieldlee/}{\uline{LinkedIn}} $|$ % row = 2, col = 1
   \href{https://github.com/Garfield550}{\uline{GitHub}} & % row = 2, col = 1
   Email: \href{mailto:career@550.moe}{\uline{career@550.moe}} \\ % row = 2, col = 2
 \end{tabular*}
@@ -201,27 +201,34 @@
 
 \section{Projects}
 \resumeHeadingListStart{}
-  \resumeTrioHeading{Meta Network Homepage}{Next.js, TypeScript, Chakra UI, Emotion}{\href{https://github.com/Meta-Network/meta-ico/}{\uline{Source Code}}}
+  \resumeTrioHeading{Meta Network Homepage}{Next.js, TypeScript, Chakra UI, Emotion}{\href{https://github.com/Meta-Network/meta-ico}{\uline{Source Code}}}
+  \resumeItemListStart{}
+    \resumeItem{Add new components to the page.}
+    \resumeItem{Make the page looks more consistent.}
+  \resumeItemListEnd{}
+
+  \resumeTrioHeading{Meta CMS Backend}{NestJS, TypeScript, TypeORM, MySQL, Redis}{\href{https://github.com/Meta-Network/meta-cms-backend}{\uline{Source Code}}}
+  \resumeItemListStart{}
+    \resumeItem{Build the basic blocks of the project.}
+    \resumeItem{Connect to MySQL utilizing TypeORM.}
+    \resumeItem{Setup OpenAPI (Swagger) for web developer to consume.}
+    \resumeItem{Integrate with Grafana Loki using Winston, logging simultaneously to the terminal, file, and Loki.}
+    \resumeItem{Create a corresponding monitoring dashboard for the queueing system built with Bull and NATS.}
+    \resumeItem{Add AuthN (authentication) to the app, using JWT passed by in-house UCenter, Passport and NestJS guard.}
+    \resumeItem{Allow user entering information about their site, which will be passed to Meta CMS Worker after verification using class-validator.}
+    \resumeItem{Utilize microservices architecture design to request basic user information, storage service access token and social media handle from UCenter.}
+    \resumeItem{Integrate with GitHub and Gitee, requesting access to a new or existing repository for Worker to store CMS data.}
+    \resumeItem{Cache requests using cache-manager, avoiding unnecessary database queries.}
+    \resumeItem{Containerize the whole app with Docker Compose.}
+  \resumeItemListEnd{}
+
+  \resumeTrioHeading{Meta CMS Worker}{Node.js, TypeScript, Hexo, Git, execa}{\href{https://github.com/Meta-Network/meta-cms-worker}{\uline{Source Code}}}
   \resumeItemListStart{}
     \resumeItem{A \textbf{CRUD application} exposed using a RESTful API made with Node.js}
     \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
   \resumeItemListEnd{}
 
-  \resumeTrioHeading{Meta CMS Backend}{NestJS, TypeScript, TypeORM, MySQL, Redis}{\href{https://github.com/Meta-Network/meta-cms-backend/}{\uline{Source Code}}}
-  \resumeItemListStart{}
-    \resumeItem{Designed and developed a clean and modern website using \textbf{HTML, CSS, and JavaScript}}
-    \resumeItem{Optimized website for \textbf{speed and user experience}}
-    \resumeItem{Utilized \textbf{responsive design} to ensure compatibility across all devices}
-    \resumeItem{Deployed on GitHub pages via GitHub Actions}
-  \resumeItemListEnd{}
-
-  \resumeTrioHeading{Meta CMS Worker}{Node.js, TypeScript, Hexo, Git, execa}{\href{https://github.com/Meta-Network/meta-cms-worker/}{\uline{Source Code}}}
-  \resumeItemListStart{}
-    \resumeItem{A \textbf{CRUD application} exposed using a RESTful API made with Node.js}
-    \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
-  \resumeItemListEnd{}
-
-  \resumeTrioHeading{ANE NFT Marketplace}{React, TypeScript, Chakra UI, Emotion, Ethers.js, web3-react}{\href{https://github.com/Artnomics-org/art-and-economics/}{\uline{Source Code}}}
+  \resumeTrioHeading{ANE NFT Marketplace}{React, TypeScript, Chakra UI, Emotion, Ethers.js, web3-react}{\href{https://github.com/Artnomics-org/art-and-economics}{\uline{Source Code}}}
   \resumeItemListStart{}
     \resumeItem{A \textbf{CRUD application} exposed using a RESTful API made with Node.js}
     \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
@@ -245,13 +252,13 @@
     \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
   \resumeItemListEnd{}
 
-  \resumeTrioHeading{AgentSwap Civitai}{Next.js, TypeScript, Zod, NextAuth.js, Web3Modal, wagmi, SIWE}{\href{https://github.com/agentswap/civitai/}{\uline{Source Code}}}
+  \resumeTrioHeading{AgentSwap Civitai}{Next.js, TypeScript, Zod, NextAuth.js, Web3Modal, wagmi, SIWE}{\href{https://github.com/agentswap/civitai}{\uline{Source Code}}}
   \resumeItemListStart{}
     \resumeItem{A \textbf{CRUD application} exposed using a RESTful API made with Node.js}
     \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
   \resumeItemListEnd{}
 
-  \resumeTrioHeading{AgentSwap Hosting Worker}{Node.js, TypeScript, H3, Zod, execa, Octokit, Pino}{\href{https://github.com/agentswap/hosting-worker/}{\uline{Source Code}}}
+  \resumeTrioHeading{AgentSwap Hosting Worker}{Node.js, TypeScript, H3, Zod, execa, Octokit, Pino}{\href{https://github.com/agentswap/hosting-worker}{\uline{Source Code}}}
   \resumeItemListStart{}
     \resumeItem{A \textbf{CRUD application} exposed using a RESTful API made with Node.js}
     \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
@@ -263,13 +270,13 @@
     \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
   \resumeItemListEnd{}
 
-  \resumeTrioHeading{Taro}{React, TypeScript}{\href{https://github.com/NervJS/taro/}{\uline{Source Code}}}
+  \resumeTrioHeading{Taro}{React, TypeScript}{\href{https://github.com/NervJS/taro}{\uline{Source Code}}}
   \resumeItemListStart{}
     \resumeItem{A \textbf{CRUD application} exposed using a RESTful API made with Node.js}
     \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
   \resumeItemListEnd{}
 
-  \resumeTrioHeading{Taro UI}{Taro, React, TypeScript}{\href{https://github.com/NervJS/taro-ui/}{\uline{Source Code}}}
+  \resumeTrioHeading{Taro UI}{Taro, React, TypeScript}{\href{https://github.com/NervJS/taro-ui}{\uline{Source Code}}}
   \resumeItemListStart{}
     \resumeItem{A \textbf{CRUD application} exposed using a RESTful API made with Node.js}
     \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
