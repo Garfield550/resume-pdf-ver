@@ -218,50 +218,85 @@
     \resumeItem{Utilize microservices architecture design to request basic user information, storage service access token and social media handle from UCenter.}
     \resumeItem{Allow user entering information about their site, which will be passed to Meta CMS Worker after verification using class-validator.}
     \resumeItem{Integrate with GitHub and Gitee, requesting access to a new or existing repository for Worker to store CMS data.}
+    \resumeItem{Persist CMS article metadata with Arweave, use pRetry to handle transient failures.}
     \resumeItem{Cache requests using cache-manager, avoiding unnecessary database queries.}
+    \resumeItem{Perform unit testing for critical logic with Jest.}
     \resumeItem{Containerize the whole app with Docker Compose.}
   \resumeItemListEnd{}
 
   \resumeTrioHeading{Meta CMS Worker}{Node.js, TypeScript, Hexo, Git, execa}{\href{https://github.com/Meta-Network/meta-cms-worker}{\uline{Source Code}}}
   \resumeItemListStart{}
-    \resumeItem{A \textbf{CRUD application} exposed using a RESTful API made with Node.js}
-    \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
+    \resumeItem{Encapsulate git(1) with execa, since other mainstream git library in Node.js are basically unusable.}
+    \resumeItem{Call internal API of Hexo to create, update and delete articles and to generate websites.}
+    \resumeItem{Mux custom configuration from the user with the default configuration, generating a new configuration file for Hexo to consume.}
+    \resumeItem{Pushing changes to GitHub or Gitee repository, based on information sent from Backend.}
+    \resumeItem{Integrate with Grafana Loki using Winston, logging simultaneously to the terminal, file, and Loki, preventing Denial of Service attack.}
+    \resumeItem{Perform unit testing for important logic with AVA and Sinon.JS.}
+    \resumeItem{Containerize the whole app with Docker.}
   \resumeItemListEnd{}
 
   \resumeTrioHeading{ANE NFT Marketplace}{React, TypeScript, styled-components, useSWR, Ethers.js, web3-react}{\href{https://github.com/Artnomics-org/art-and-economics}{\uline{Source Code}}}
   \resumeItemListStart{}
-    \resumeItem{A \textbf{CRUD application} exposed using a RESTful API made with Node.js}
-    \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
+    \resumeItem{Recreate the design draft using styled-components.}
+    \resumeItem{Create a decentralized marketplace for ANE with Uniswap Protocol V2 SDK, allowing exchange between ANE token and others, creation of new exchange pairs, and liquidity mining.}
+    \resumeItem{Utilizing Zora Media Protocol to handle the creation, bidding and asking of NFTs.}
+    \resumeItem{Connect to MetaMask and WalletConnect using Ethers.js and web3-react, allowing users to login and to manage their assets.}
+    \resumeItem{Fetch NFT metadata, bids and asks using useSWR.}
+    \resumeItem{Extract custom React Hooks from the UI components.}
   \resumeItemListEnd{}
 
   \resumeTrioHeading{W3itch Fronted}{Next.js, TypeScript, Material UI, Emotion, Ethers.js, useWallet}{}
   \resumeItemListStart{}
-    \resumeItem{A \textbf{CRUD application} exposed using a RESTful API made with Node.js}
-    \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
+    \resumeItem{Crafted using Material UI and Emotion.}
+    \resumeItem{Different layouts across the site, providing a better user experience.}
+    \resumeItem{AuthN using OAuth 2.0.}
+    \resumeItem{Connect with useWallet.}
+    \resumeItem{Implement user information and settings form using React Hook Form and class-validator.}
+    \resumeItem{AuthZ (authorization) with useContext and useReducer.}
+    \resumeItem{Load and paginate data from the backend using getServerSideProps and useSWR.}
+    \resumeItem{Allow user to filter games by category and/or tags, implemented with React Select and custom Hooks to synchronize the filter state and the URL, allowing users to share the URL with others.}
+    \resumeItem{Manage ERC20 tokens with custom Hooks and Ethers.js.}
+    \resumeItem{A11y (accessibility) with ARIA (Accessible Rich Internet Applications).}
+    \resumeItem{Split existing large components into several components and custom React Hooks, increasing maintainability.}
+    \resumeItem{Prevent unnecessary re-renders using useMemo and useCallback.}
+    \resumeItem{Perform unit testing for business logic with Jest.}
   \resumeItemListEnd{}
 
   \resumeTrioHeading{AmbrusStudio Mint page}{Vue.js, TypeScript, Headless UI, Ethers.js, Web3Modal, wagmi}{}
   \resumeItemListStart{}
-    \resumeItem{A \textbf{CRUD application} exposed using a RESTful API made with Node.js}
-    \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
+    \resumeItem{Mirgate the existing Vue CLI project to Vite.}
+    \resumeItem{Implement the page using UnoCSS and Headless UI.}
+    \resumeItem{Refactor duplicate code in components, decreasing LoC (Lines of Code) in total.}
+    \resumeItem{Author a new Vue component using Vue Composition API, based on Web3Modal HTML and wagmi core, for wallet connection in Vue.}
+    \resumeItem{Mint NFTs with wagmi core and Ethers.js, calling in-house seller contract on Ethereum.}
+    \resumeItem{Perform unit testing for significant logic with Vitest.}
   \resumeItemListEnd{}
 
   \resumeTrioHeading{AmbrusStudio User Center}{React, TypeScript, Headless UI, Ethers.js, Web3Modal, wagmi, ImmutableX SDK}{}
   \resumeItemListStart{}
-    \resumeItem{A \textbf{CRUD application} exposed using a RESTful API made with Node.js}
-    \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
+    \resumeItem{Built with Vite, UnoCSS, Headless UI, React Hook Form, Web3Modal and wagmi.}
+    \resumeItem{Construct engineering system with Turborepo and pnpm workspace, to share UI components and logic between projects.}
+    \resumeItem{Encapsule ImmutableX SDK into a React Hook.}
+    \resumeItem{Use AbortController to optimize rendering and network requests.}
+    \resumeItem{Refactor filter logic in the gallery, increase rendering performance.}
   \resumeItemListEnd{}
 
   \resumeTrioHeading{AgentSwap Civitai}{Next.js, TypeScript, tRPC, NextAuth.js, Web3Modal, wagmi, SIWE}{\href{https://github.com/agentswap/civitai}{\uline{Source Code}}}
   \resumeItemListStart{}
-    \resumeItem{A \textbf{CRUD application} exposed using a RESTful API made with Node.js}
-    \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
+    \resumeItem{Utilize NextAuth.js and SIWE (Sign-In With Ethereum) to implement login function.}
+    \resumeItem{Share SIWE logic between components using custom React Hooks.}
+    \resumeItem{Simplify front-end Hosting Worker API calls using tRPC.}
+    \resumeItem{Verify API parameters with Zod.}
+    \resumeItem{Create webhook to receive events from Hosting Worker, update the database accordingly.}
   \resumeItemListEnd{}
 
   \resumeTrioHeading{AgentSwap Hosting Worker}{Node.js, TypeScript, H3, Zod, execa, Octokit, Pino}{\href{https://github.com/agentswap/hosting-worker}{\uline{Source Code}}}
   \resumeItemListStart{}
-    \resumeItem{A \textbf{CRUD application} exposed using a RESTful API made with Node.js}
-    \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
+    \resumeItem{Implement necessary APIs using Node.js and H3.}
+    \resumeItem{Output logs to file and terminal with Pino, Pino HTTP and Pino Pretty.}
+    \resumeItem{Verify environment variables and API parameters with Zod and h3-zod.}
+    \resumeItem{Encapsulate git(1), docker(1) and systemctl(1) (for controlling Caddy) with execa, to build and deploy Gradio projects.}
+    \resumeItem{Check if the repository exists, using Octokit and Hugging Face JS libraries.}
   \resumeItemListEnd{}
 
   % \resumeTrioHeading{If And Only If}{Next.js, TypeScript, Headless UI, Tailwind CSS, Zod, ConnectKit, wagmi}{}
@@ -272,14 +307,14 @@
 
   \resumeTrioHeading{Taro}{React, TypeScript}{\href{https://github.com/NervJS/taro}{\uline{Source Code}}}
   \resumeItemListStart{}
-    \resumeItem{A \textbf{CRUD application} exposed using a RESTful API made with Node.js}
-    \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
+    \resumeItem{Triage issues on GitHub.}
+    \resumeItem{Seasonal contributor to the codebase.}
   \resumeItemListEnd{}
 
   \resumeTrioHeading{Taro UI}{Taro, React, TypeScript}{\href{https://github.com/NervJS/taro-ui}{\uline{Source Code}}}
   \resumeItemListStart{}
-    \resumeItem{A \textbf{CRUD application} exposed using a RESTful API made with Node.js}
-    \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
+    \resumeItem{Triage issues on GitHub.}
+    \resumeItem{Seasonal contributor to the codebase.}
   \resumeItemListEnd{}
 \resumeHeadingListEnd{}
 %--------------------------------------------
@@ -295,9 +330,9 @@
   {Qiubi Technology (Shanghai) Co., Ltd.}{Remote -- Shanghai, China}
 
     \resumeItemListStart{}
-      \resumeItem{I added new features for an enhanced Civitai project, to allow users to use Ethereum wallet login. I created a custom \textbf{NextAuth.js Credentials Provider} and used \textbf{SIWE, Sign-In With Ethereum} for signature verification. \textbf{Web3Modal and wagmi} were used on the front-end to connect to the wallet. To implement the hosting of Gradio projects, I developed a back-end service using \textbf{H3}, validated environment variables and API parameters with \textbf{Zod}, and wrapped Git and Docker commands with \textbf{Execa} to package Gradio projects from GitHub or Hugging Face into Docker images, hosted on the server with custom ports and domains so that the front-end can display Gradio projects.}
+      \resumeItem{I added new features for an enhanced Civitai project, to allow users to use Ethereum wallet login. I created a custom \textbf{NextAuth.js Credentials Provider} and used \textbf{SIWE} for signature verification. \textbf{Web3Modal and wagmi} were used on the front-end to connect to the wallet. To implement the hosting of Gradio projects, I developed a back-end service using \textbf{H3}, validated environment variables and API parameters with \textbf{Zod}, and wrapped Git and Docker commands with \textbf{Execa} to package Gradio projects from GitHub or Hugging Face into Docker images, hosted on the server with custom ports and domains so that the front-end can display Gradio projects.}
 
-      \resumeItem{Collaborated with our CTO to build a back-end service for a web3 blog toolkit. Using \textbf{NestJS, TypeORM, MySQL, and TypeScript}, I completed the back-end API for blog information, storage targets, and theme configuration, and integrated \textbf{Arweave} to store user post's metadata. I built a website generator based on \textbf{Hexo} using \textbf{Node.js}, which can automatically generate and deploy Hexo websites according to the presets provided by the back-end.}
+      \resumeItem{Collaborated with our CTO to build a back-end service for a web3 blog toolkit. Using \textbf{NestJS, TypeORM, MySQL, and TypeScript}, I completed the back-end API for blog information, storage targets, and theme configuration, and integrated \textbf{Arweave} to store user post's metadata. I built a website generator based on \textbf{Hexo} using \textbf{Node.js}, which can automatically generate and deploy Hexo websites according to the presets provided by the back-end. Received 200 new registrations just on the first day.}
 
       \resumeItem{I assisted a web3 MOBA game company, developing NFT minting websites and user center websites. I used \textbf{Vue.js, Headless UI, UnoCSS (a Tailwind CSS alternative), and TypeScript} to build the minting website. As Vue does not have a good wallet connection framework, I utilized the \textbf{Vue's Composition API} to encapsulate \textbf{Web3Modal HTML and wagmi Core} to achieve similar functionality as Web3Modal React. During my maintenance of this project, the company successfully conducted four rounds of NFT issuance activities. Together with my colleagues, we built the user center website using \textbf{React and TypeScript}. I split UI elements into components for efficient reuse and also helped optimize some \textbf{React Hooks} to improve page performance. To better reuse UI components and share business logic, I used \textbf{monorepo} to reorganize code from multiple projects into independent packages which solved problems such as copy-pasting and logic synchronization.}
     \resumeItemListEnd{}
