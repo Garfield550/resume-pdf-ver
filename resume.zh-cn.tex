@@ -1,0 +1,278 @@
+% !TeX program = xelatex
+%-------------------------
+% Rezume, a latex resume template for developers
+% Author : Nanu Panchamurthy
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+
+% Hope this resume template helps you land an awesome job.
+%-------------------------
+
+
+%------------PACKAGES----------------
+\documentclass[a4paper,11pt,fontset=fandol,scheme=plain]{ctexart}
+% Use XeLaTeX (Overleaf: set Compiler to XeLaTeX and this as the main document).
+% Fandol is included with TeX Live, so no system font upload is needed.
+
+\usepackage{verbatim} % reimplements the "verbatim" and "verbatim*" environments
+
+\usepackage{titlesec} % provides an interface to sectioning commands i.e. custom elements
+
+\usepackage{color} % provides both foreground and background color management
+
+\usepackage{enumitem} % provides control over enumerate, itemize and description
+
+\usepackage{fancyhdr} % provides extensive facilities for constructing headers, footers and also controlling their use
+
+\usepackage{tabularx} % defines an environment tabularx, extension of "tabular" with an extra designator x, paragraph like column whose width automatically expands to fill the width of the environment
+
+\usepackage{latexsym} % provides mathematical symbols
+
+\usepackage{marvosym} % provides martin vogel's symbol font which contains various symbols
+
+\usepackage[empty]{fullpage} % sets margins to one inch and removes headers, footers etc..
+
+\usepackage[hidelinks]{hyperref} % removes color and shadow of hyperlinks
+
+\usepackage[normalem]{ulem} % provides "\ul" (uline) command which will break at line breaks
+
+
+%-----------------------------------------
+
+\usepackage{iftex}
+\ifPDFTeX
+  \input glyphtounicode % converts glyph names to unicode under pdfTeX
+  \pdfgentounicode=1
+\fi
+
+% Use a clear sans-serif Chinese face to match the Latin Source Sans style.
+\setCJKmainfont{FandolHei-Regular.otf}[BoldFont=FandolHei-Bold.otf]
+
+%----------FONT OPTIONS-------------------
+\usepackage[default]{sourcesans} % Source Sans for Latin text
+\urlstyle{same} % changes url font from default urlfont to font being used by the document
+%-----------------------------------------
+
+
+%----------MARGIN OPTIONS-----------------
+\pagestyle{fancy} % set page style to one configured by fancyhdr
+\fancyhf{} % clear all header and footer fields
+
+\renewcommand{\headrulewidth}{0in} % sets thickness of linerule under header to zero
+\renewcommand{\footrulewidth}{0in} % sets thickness of linerule over footer to zero
+
+\setlength{\tabcolsep}{0in} % sets thickness of column separator in tables to zero
+\setlength{\footskip}{4.08003pt} % sets distance between bottom of footer and bottom of last line of text to 4.08003pt
+
+% origin of the document is one inch from the top and from and the left
+% oddsidemargin and evensidemargin both refer to the left margin
+% right margin is indirectly set using oddsidemargin
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\topmargin}{-0.5in}
+
+\addtolength{\textwidth}{1.0in} % sets width of text area in the page to one inch
+\addtolength{\textheight}{1.0in} % sets height of text area in the page to one inch
+
+\raggedbottom{} % makes all pages the height of current page, no extra vertical space added
+\raggedright{} % makes all pages the width of current page, no extra horizontal space added
+%------------------------------------------
+
+
+%--------SECTIONING COMMANDS---------
+% \titleformat{<command>}
+%   [<shape>]{<format>}{<label>}{<sep>}
+%     {<before-code>}[<after-code>]
+
+% command is the sectioning command to be redefined
+% shape is the style of the font; scshape stands for small caps style
+% format is the format to be applied to whole title- label and text; absent here
+% label defines the label
+% sep is the horizontal separation between label and title body
+% before-code is the code to be executed before
+% after-code is the code to be executed after
+
+\titleformat{\section}
+  {\bfseries\large}{}
+    {0em}{\color{blue}}[\color{black}\titlerule\vspace{0pt}]
+%-------------------------------------
+
+
+%--------REDEFINITIONS----------------
+% redefines the style of the bullet point
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+% redefines the underline depth to 2pt
+\renewcommand{\ULdepth}{2pt}
+%-------------------------------------
+
+
+%--------CUSTOM COMMANDS--------------
+%\vspace{} defines a vertical space of given size, modifying this in custom commands can help stretch or shrink resume to remove or add content
+
+% resumeItem renders a bullet point
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+\newcommand{\resumeProjectHeading}[1]{
+  \item[] \hspace*{-\leftmargin}\textbf{#1}
+}
+
+% commands to start and end itemization of resumeItem, rightmargin set to 0.11in to avoid the overflow of resumetItem beyond whatever resumeItemHeading is being used
+\newcommand{\resumeItemListStart}{\begin{itemize}[rightmargin=0.11in]}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
+
+% resumeSectionType renders a bolded type to be used under a section, used as skill type here, middle element is used to keep ":"s in the same vertical line
+\newcommand{\resumeSectionType}[3]{
+  \item\begin{tabular*}{0.96\textwidth}[t]{
+    p{0.15\linewidth}p{0.02\linewidth}p{0.81\linewidth}
+  }
+    \textbf{#1} & #2 & #3
+  \end{tabular*}\vspace{-2pt}
+}
+
+% resumeTrioHeading renders three elements in three columns with second element being italicized and first element bolded, can be used for projects with three elements
+\newcommand{\resumeTrioHeading}[3]{
+  \item\small{
+    \begin{tabular*}{0.96\textwidth}[t]{
+      l@{\extracolsep{\fill}}c@{\extracolsep{\fill}}r
+    }
+      \textbf{#1} & \textit{#2} & #3
+    \end{tabular*}
+  }
+}
+
+% resumeQuadHeading renders four elements in a two columns with the second row being italicized and first element of first row bolded, can be used for experience and projects with four elements
+\newcommand{\resumeQuadHeading}[4]{
+  \item
+  \begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    {\small#3} & {\small #4} \\
+  \end{tabular*}
+}
+
+% resumeQuadHeadingChild renders the second row of resumeQuadHeading, can be used for experience if different roles in the same company need to added
+\newcommand{\resumeQuadHeadingChild}[2]{
+  \item
+  \begin{tabular*}{0.96\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{\small#1} & {\small#2} \\
+  \end{tabular*}
+}
+
+% commands to start and end itemization of resumeQuadHeading, lefmargin for left indent of 0.15in for resumeItems
+\newcommand{\resumeHeadingListStart}{
+  \begin{itemize}[leftmargin=0.15in, label={}]
+}
+\newcommand{\resumeHeadingListEnd}{\end{itemize}}
+%-------------------------------------------
+
+
+%__________________RESUME____________________
+% You can rearrange sections in any order you may prefer
+\begin{document}
+
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\Huge Garfield Lee \vspace{2pt}} & 上海，中国 \\
+  \href{https://550.moe/}{\uline{550.moe}} $|$
+  \href{https://www.linkedin.com/in/garfieldlee/}{\uline{LinkedIn}} $|$
+  \href{https://github.com/Garfield550}{\uline{GitHub}} &
+  邮箱：\href{mailto:career@550.moe}{\uline{career@550.moe}} \\
+\end{tabular*}
+
+\section{资深前端工程师}
+\small{
+  拥有\textbf{8 年开发经验}，以 \textbf{React、Next.js 和 TypeScript} 为主要技术栈，专注复杂业务系统的前端设计与长期演进。具有金融客户平台、动态问卷、行情分析及跨项目工程化实践。
+}
+
+\section{核心能力}
+\resumeItemListStart{}
+  \resumeItem{\textbf{复杂表单与 React 渲染优化}：多步骤与关联字段建模、细粒度订阅、跨步骤数据同步。}
+  \resumeItem{\textbf{异步数据与状态一致性}：查询缓存、认证与权限联动、乐观更新及失败回滚。}
+  \resumeItem{\textbf{数据驱动界面与组件集成}：动态问卷、金融表格、行情图表数据源及第三方 SDK 适配。}
+  \resumeItem{\textbf{前端架构与跨项目复用}：业务模块划分、公共能力边界、React／Vue 跨框架共享。}
+\resumeItemListEnd{}
+
+\section{主要技术}
+\small{
+  TypeScript、React、Next.js、Vue、RTK Query、React Hook Form、Zod、AG Grid、JSON Forms、Tailwind CSS、Turborepo、pnpm、Vitest；具备 Node.js 服务开发与 Docker 部署经验。
+}
+
+\section{工作经历}
+\resumeHeadingListStart{}
+  \resumeQuadHeading{资深前端工程师（Senior Frontend Engineer）}{2023.10 -- 至今}
+    {ETO Markets Ltd.}{远程办公，上海}
+  \resumeItemListStart{}
+    \resumeItem{作为\textbf{3 人前端团队中的 CRM 主要负责人，设计并把关整体架构、技术选型与模块划分}，从零搭建客户与合作伙伴 CRM，持续负责多次改版及版本维护，覆盖开户、交易账户、资金与合作伙伴业务。}
+
+    \resumeProjectHeading{CRM —— 账户与资金业务}
+    \resumeItem{\textbf{将资金界面扩展至美元、美分及欧元账户}，统一账户币种、支付币种和输入单位的处理，适配通道限额、换汇预估与余额汇总；保留美分账户以美元输入的约定，并避免币种切换后展示旧汇率。}
+    \resumeItem{针对钱包可用余额与盈亏聚合中的浮点误差，引入十进制运算，并为这两类计算补充回归测试。}
+    \resumeItem{将 KYC 检查接入开户、入金、出金及转账流程，复用按操作类型划分的检查逻辑，提供校验进度反馈、失败提示和认证升级引导。}
+    \resumeItem{配合后端完成多交易服务器的前端适配，区分展示账号与唯一账户标识，统一账户选择、详情跳转及资金请求中的账户身份；整合平台与服务器的组合筛选，兼容既有业务流程。}
+
+    \resumeProjectHeading{前端工程建设与持续演进}
+    \resumeItem{生产环境真实用户监测：\textbf{桌面／移动端 LCP P75 为 1.61／1.99 秒，INP P75 为 104／186 毫秒}（Vercel Speed Insights，2026.10.12--11.08，UTC）。}
+    \resumeItem{针对多步骤开户中字段联动和验证码倒计时导致\textbf{整表单频繁重渲染}的问题，通过 createFormControl 独立持有表单状态、按字段与步骤局部订阅，减少无关组件的重渲染，同时保持跨步骤数据同步与 Zod 规则校验。}
+    \resumeItem{基于 AG Grid 建设\textbf{客户、交易及资金视图共用的表格能力}：公共层统一数据源适配、业务列格式和筛选转换，各页面保留业务查询、列组合及树状展示配置，兼顾复用与场景差异。}
+    \resumeItem{选用 RTK Query 集中定义类型化 API，以缓存标签和 Redux matcher 联动认证、查询与权限状态，处理登录恢复、退出清理及客户升级后的权限同步；针对后端异步处理的杠杆变更采用乐观更新与请求失败回滚，避免即时重取旧值覆盖界面。}
+    \resumeItem{将通用工具、组件与工程配置提取为独立共享包，\textbf{落地于 ETO+、CRM、Admin 多个项目}，集中维护公共实现与发布入口，各业务应用通过包依赖接入。}
+    \resumeItem{维护\textbf{8 种语言}的客户界面，将语言消息按业务模块拆分，并提供页面级消息选择入口，使页面只接收所需消息；同步维护资金、账户及异常提示的多语言文案。}
+
+    \resumeProjectHeading{CRM 澳洲版 —— 动态风险问卷}
+    \resumeItem{主要负责面向澳大利亚市场的 CRM 版本，\textbf{主导 JSON Forms 选型及问卷接口约定}，由后端提供题目、选项及布局的结构化描述，前端通过自定义渲染器动态生成单选／多选问卷并校验；复用渲染机制处理题型与布局变化，并衔接分阶段答题、结果与冻结状态。}
+
+    \resumeProjectHeading{ETO+ —— 行情图表与策略分析}
+    \resumeItem{早期接入 TradingView Charting Library，开发行情数据源适配，处理品种搜索与解析、历史 K 线与成交量数据、时间戳转换、流式报价到 K 线的更新；将图表实例创建与销毁封装为可复用 React Hook。}
+    \resumeItem{开发策略收益与增长图表、分润周期报表及订阅者订单明细，组织策略、订阅与订单间的逐层查询，接入账户、日期、品种、订单类型和关键词筛选。}
+  \resumeItemListEnd{}
+
+  \resumeQuadHeading{Web 开发工程师}{2020.11 -- 2023.06}
+    {秋比科技（上海）有限公司}{远程办公，上海}
+  \resumeItemListStart{}
+    \resumeProjectHeading{AmbrusStudio —— NFT 铸造平台与用户中心}
+    \resumeItem{\textbf{提出并推进 Turborepo 与 pnpm workspaces 多应用改造}，解决跨项目复制维护问题；提取供 React、Vue 共用的 API 与工具包，将 React UI 独立拆包，并将 React Launcher 从 CRA 迁移至 Vite。}
+    \resumeItem{从早期参与 Vue 铸造平台与 React 用户中心开发，基于 wagmi Core、Web3Modal HTML 和 Vue 响应式状态适配钱包能力，支持合约交互及\textbf{四轮 NFT 发行活动}。}
+
+    \resumeProjectHeading{W3itch —— 游戏发布平台}
+    \resumeItem{重构游戏发布表单，将文件、封面及截图拆为子表单，通过 React Hook Form 上下文共享状态并实现会话内草稿恢复；修复渲染函数内创建样式组件导致组件类型不稳定的问题。}
+
+    \resumeProjectHeading{AgentSwap —— Gradio 应用托管}
+      \hfill \href{https://github.com/agentswap/hosting-worker}{\uline{Worker}}
+    \resumeItem{为 Next.js 应用接入 SIWE 钱包登录；开发 Node.js/H3 部署服务，将 GitHub/Hugging Face 项目构建为 Docker 镜像并配置 Caddy 域名，处理容器替换、运行状态检查、失败反馈及临时目录清理。}
+
+    \resumeProjectHeading{Meta CMS —— 博客后端与发布 Worker}
+      \hfill \href{https://github.com/Meta-Network/meta-cms-backend}{\uline{Backend}} $|$
+      \href{https://github.com/Meta-Network/meta-cms-worker}{\uline{Worker}}
+    \resumeItem{与 CTO 协作开发 NestJS 博客后端及 Git/Hexo 发布 Worker，提取任务类型、后端通信和状态报告公共包，支持内容生成与 GitHub/Gitee 发布；产品上线首日获得\textbf{200 个注册用户}。}
+  \resumeItemListEnd{}
+
+  \resumeQuadHeading{Web 开发工程师}{2018.11 -- 2020.10}
+    {上海哈益信息科技有限公司}{上海}
+  \resumeItemListStart{}
+    \resumeItem{使用 Taro 和 React 开发、维护微信小程序，推广 TypeScript 与 ESLint，建立统一的开发规范。}
+    \resumeItem{使用 TypeScript 与 Sass 定制 October CMS 主题，通过 Webpack 和 PostCSS 统一脚本及样式资源构建，处理样式冲突与资源加载分散的问题。}
+  \resumeItemListEnd{}
+
+  \resumeQuadHeadingChild{软件开发实习生}{2017.08 -- 2018.02}
+  \resumeItemListStart{}
+    \resumeItem{协助主程使用 C\# 与 ASP.NET Core 进行功能开发和维护。}
+  \resumeItemListEnd{}
+\resumeHeadingListEnd{}
+
+\section{开源贡献}
+\resumeHeadingListStart{}
+  \resumeTrioHeading{Taro \& Taro UI}{React, TypeScript}{\href{https://github.com/NervJS/taro}{\uline{Taro}} $|$ \href{https://github.com/NervJS/taro-ui}{\uline{Taro UI}}}
+  \resumeItemListStart{}
+    \resumeItem{修复 AST 配置提取中，转换后的类名与静态属性赋值目标不一致导致 App config 无法解析的问题（\href{https://github.com/NervJS/taro/pull/5785}{\uline{\#5785}}）；修复微信小程序插件构建时误改 miniprogramRoot 的问题。}
+    \resumeItem{为 Taro API 包增加 CommonJS 分发，修正相关包的发布文件范围（\href{https://github.com/NervJS/taro/pull/5991}{\uline{\#5991}}），并完善动画与存储 API 的类型声明。}
+    \resumeItem{修复 Taro UI Calendar 跨月份日期 key 重复导致样式无法更新的问题；参与组件修复、测试、发布配置调整及 GitHub issue 排查。}
+  \resumeItemListEnd{}
+\resumeHeadingListEnd{}
+
+\section{教育经历}
+\resumeHeadingListStart{}
+  \resumeQuadHeading{山东信息职业技术学院}{山东潍坊}
+    {软件工程}{2015.07 -- 2018.07}
+\resumeHeadingListEnd{}
+
+\end{document}

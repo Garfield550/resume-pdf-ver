@@ -36,11 +36,14 @@
 \usepackage[english]{babel} % provides culturally determined typographical rules for wide range of languages
 %-----------------------------------------
 
-\input glyphtounicode % converts glyph names to unicode
-\pdfgentounicode=1 % ensures pdfs generated are ats readable
+\usepackage{iftex}
+\ifPDFTeX
+  \input glyphtounicode % converts glyph names to unicode under pdfTeX
+  \pdfgentounicode=1
+\fi
 
 %----------FONT OPTIONS-------------------
-\usepackage[default]{sourcesanspro} % uses the font source sans pro
+\usepackage[default]{sourcesans} % Source Sans for Latin text
 \urlstyle{same} % changes url font from default urlfont to font being used by the document
 %-----------------------------------------
 
@@ -103,6 +106,10 @@
 % resumeItem renders a bullet point
 \newcommand{\resumeItem}[1]{
   \item\small{#1}
+}
+
+\newcommand{\resumeProjectHeading}[1]{
+  \item[] \hspace*{-\leftmargin}\textbf{#1}
 }
 
 % commands to start and end itemization of resumeItem, rightmargin set to 0.11in to avoid the overflow of resumetItem beyond whatever resumeItemHeading is being used
@@ -173,209 +180,104 @@
 
 
 %-----------SUMMARY--------------------------
-% Keep this short, simple and straigth to point
-
-\section{Web Developer}
+\section{Senior Frontend Engineer}
 \small{
-  \textbf{Five years of experience} as a web developer, I'm familiar with \textbf{React, Next.js, and TypeScript}. I also have experience in Web3 and blockchain development, have worked on projects such as an \textbf{NFT marketplace}, an \textbf{NFT minting platform}, and a \textbf{blog platform based on Web3 technology}. Enjoy trying new web technologies and frameworks, actively promoting and using them in team projects.
+  Senior frontend engineer with \textbf{eight years of experience}, specializing in \textbf{React, Next.js, and TypeScript} and the design and ongoing evolution of complex business applications. Experience spans financial customer platforms, dynamic questionnaires, market analytics, and shared frontend engineering.
 }
-%--------------------------------------------
 
+\section{Core Strengths}
+\resumeItemListStart{}
+  \resumeItem{\textbf{Complex Forms \& React Rendering Optimization}: Multi-step and dependent-field modeling, fine-grained subscriptions, and cross-step data synchronization.}
+  \resumeItem{\textbf{Asynchronous Data \& State Consistency}: Query caches, authentication/permission coordination, optimistic updates, and failure rollback.}
+  \resumeItem{\textbf{Data-Driven Interfaces \& Integrations}: Dynamic questionnaires, financial grids, market-chart datafeeds, and third-party SDK adaptation.}
+  \resumeItem{\textbf{Frontend Architecture \& Reuse}: Business module boundaries, shared capabilities, and cross-framework reuse between React and Vue.}
+\resumeItemListEnd{}
 
-%--------------SKILLS------------------------
-% Add or remove resumeSectionTypes according to your needs
-
-\section{Technical Skills}
-  \resumeHeadingListStart{}
-    \resumeSectionType{Languages}{:}{TypeScript, HTML, CSS, C\#, Zig}
-    \resumeSectionType{Frameworks}{:}{React, Next.js, NestJS, Node.js}
-    \resumeSectionType{Libraries}{:}{Zod, wagmi, Tailwind CSS, Prisma}
-    \resumeSectionType{Databases}{:}{PostgreSQL, MySQL}
-    \resumeSectionType{Dev Tools}{:}{ESLint, Visual Studio Code, Git, GitHub Copilot}
-  \resumeHeadingListEnd{}
-%--------------------------------------------
-
-
-%-----------PROJECTS--------------------------
-% Use resumeQuadHeading if four elements are feasible (ex: demo video link), else use resumeTrioHeading. Keep the bullet points simple and concise and try to cover wide variety of skills you have used to build these projects
-
-\section{Projects}
-\resumeHeadingListStart{}
-  \resumeTrioHeading{Meta Network Homepage}{Next.js, TypeScript, Chakra UI, Emotion}{\href{https://github.com/Meta-Network/meta-ico}{\uline{Source Code}}}
-  \resumeItemListStart{}
-    \resumeItem{Add new components to the page.}
-    \resumeItem{Make the page looks more consistent.}
-  \resumeItemListEnd{}
-
-  \resumeTrioHeading{Meta CMS Backend}{NestJS, TypeScript, TypeORM, MySQL, Redis}{\href{https://github.com/Meta-Network/meta-cms-backend}{\uline{Source Code}}}
-  \resumeItemListStart{}
-    \resumeItem{Build the basic blocks of the project.}
-    \resumeItem{Connect to MySQL utilizing TypeORM.}
-    \resumeItem{Setup OpenAPI (Swagger) for web developer to consume.}
-    \resumeItem{Integrate with Grafana Loki using Winston, logging simultaneously to the terminal, file, and Loki.}
-    \resumeItem{Create a corresponding monitoring dashboard for the queueing system built with Bull and NATS.}
-    \resumeItem{Add AuthN (authentication) to the app, using JWT passed by in-house UCenter, Passport and NestJS guard.}
-    \resumeItem{Utilize microservices architecture design to request basic user information, storage service access token and social media handle from UCenter.}
-    \resumeItem{Allow user entering information about their site, which will be passed to Meta CMS Worker after verification using class-validator.}
-    \resumeItem{Integrate with GitHub and Gitee, requesting access to a new or existing repository for Worker to store CMS data.}
-    \resumeItem{Persist CMS article metadata with Arweave, use pRetry to handle transient failures.}
-    \resumeItem{Cache requests using cache-manager, avoiding unnecessary database queries.}
-    \resumeItem{Perform unit testing for critical logic with Jest.}
-    \resumeItem{Containerize the whole app with Docker Compose.}
-  \resumeItemListEnd{}
-
-  \resumeTrioHeading{Meta CMS Worker}{Node.js, TypeScript, Hexo, Git, execa}{\href{https://github.com/Meta-Network/meta-cms-worker}{\uline{Source Code}}}
-  \resumeItemListStart{}
-    \resumeItem{Encapsulate git(1) with execa, since other mainstream git library in Node.js are basically unusable.}
-    \resumeItem{Call internal API of Hexo to create, update and delete articles and to generate websites.}
-    \resumeItem{Mux custom configuration from the user with the default configuration, generating a new configuration file for Hexo to consume.}
-    \resumeItem{Pushing changes to GitHub or Gitee repository, based on information sent from Backend.}
-    \resumeItem{Integrate with Grafana Loki using Winston, logging simultaneously to the terminal, file, and Loki, preventing Denial of Service attack.}
-    \resumeItem{Perform unit testing for important logic with AVA and Sinon.JS.}
-    \resumeItem{Containerize the whole app with Docker.}
-  \resumeItemListEnd{}
-
-  \resumeTrioHeading{ANE NFT Marketplace}{React, TypeScript, styled-components, useSWR, Ethers.js, web3-react}{\href{https://github.com/Artnomics-org/art-and-economics}{\uline{Source Code}}}
-  \resumeItemListStart{}
-    \resumeItem{Recreate the design draft using styled-components.}
-    \resumeItem{Create a decentralized marketplace for ANE with Uniswap Protocol V2 SDK, allowing exchange between ANE token and others, creation of new exchange pairs, and liquidity mining.}
-    \resumeItem{Utilizing Zora Media Protocol to handle the creation, bidding and asking of NFTs.}
-    \resumeItem{Connect to MetaMask and WalletConnect using Ethers.js and web3-react, allowing users to login and to manage their assets.}
-    \resumeItem{Fetch NFT metadata, bids and asks using useSWR.}
-    \resumeItem{Extract custom React Hooks from the UI components.}
-  \resumeItemListEnd{}
-
-  \resumeTrioHeading{W3itch Fronted}{Next.js, TypeScript, Material UI, Emotion, Ethers.js, useWallet}{}
-  \resumeItemListStart{}
-    \resumeItem{Crafted using Material UI and Emotion.}
-    \resumeItem{Different layouts across the site, providing a better user experience.}
-    \resumeItem{AuthN using OAuth 2.0.}
-    \resumeItem{Connect with useWallet.}
-    \resumeItem{Implement user information and settings form using React Hook Form and class-validator.}
-    \resumeItem{AuthZ (authorization) with useContext and useReducer.}
-    \resumeItem{Load and paginate data from the backend using getServerSideProps and useSWR.}
-    \resumeItem{Allow user to filter games by category and/or tags, implemented with React Select and custom Hooks to synchronize the filter state and the URL, allowing users to share the URL with others.}
-    \resumeItem{Manage ERC20 tokens with custom Hooks and Ethers.js.}
-    \resumeItem{A11y (accessibility) with ARIA (Accessible Rich Internet Applications).}
-    \resumeItem{Split existing large components into several components and custom React Hooks, increasing maintainability.}
-    \resumeItem{Prevent unnecessary re-renders using useMemo and useCallback.}
-    \resumeItem{Perform unit testing for business logic with Jest.}
-  \resumeItemListEnd{}
-
-  \resumeTrioHeading{AmbrusStudio Mint page}{Vue.js, TypeScript, Headless UI, Ethers.js, Web3Modal, wagmi}{}
-  \resumeItemListStart{}
-    \resumeItem{Mirgate the existing Vue CLI project to Vite.}
-    \resumeItem{Implement the page using UnoCSS and Headless UI.}
-    \resumeItem{Refactor duplicate code in components, decreasing LoC (Lines of Code) in total.}
-    \resumeItem{Author a new Vue component using Vue Composition API, based on Web3Modal HTML and wagmi core, for wallet connection in Vue.}
-    \resumeItem{Mint NFTs with wagmi core and Ethers.js, calling in-house seller contract on Ethereum.}
-    \resumeItem{Perform unit testing for significant logic with Vitest.}
-  \resumeItemListEnd{}
-
-  \resumeTrioHeading{AmbrusStudio User Center}{React, TypeScript, Headless UI, Ethers.js, Web3Modal, wagmi, ImmutableX SDK}{}
-  \resumeItemListStart{}
-    \resumeItem{Built with Vite, UnoCSS, Headless UI, React Hook Form, Web3Modal and wagmi.}
-    \resumeItem{Construct engineering system with Turborepo and pnpm workspace, to share UI components and logic between projects.}
-    \resumeItem{Encapsule ImmutableX SDK into a React Hook.}
-    \resumeItem{Use AbortController to optimize rendering and network requests.}
-    \resumeItem{Refactor filter logic in the gallery, increase rendering performance.}
-  \resumeItemListEnd{}
-
-  \resumeTrioHeading{AgentSwap Civitai}{Next.js, TypeScript, tRPC, NextAuth.js, Web3Modal, wagmi, SIWE}{\href{https://github.com/agentswap/civitai}{\uline{Source Code}}}
-  \resumeItemListStart{}
-    \resumeItem{Utilize NextAuth.js and SIWE (Sign-In With Ethereum) to implement login function.}
-    \resumeItem{Share SIWE logic between components using custom React Hooks.}
-    \resumeItem{Simplify front-end Hosting Worker API calls using tRPC.}
-    \resumeItem{Verify API parameters with Zod.}
-    \resumeItem{Create webhook to receive events from Hosting Worker, update the database accordingly.}
-  \resumeItemListEnd{}
-
-  \resumeTrioHeading{AgentSwap Hosting Worker}{Node.js, TypeScript, H3, Zod, execa, Octokit, Pino}{\href{https://github.com/agentswap/hosting-worker}{\uline{Source Code}}}
-  \resumeItemListStart{}
-    \resumeItem{Implement necessary APIs using Node.js and H3.}
-    \resumeItem{Output logs to file and terminal with Pino, Pino HTTP and Pino Pretty.}
-    \resumeItem{Verify environment variables and API parameters with Zod and h3-zod.}
-    \resumeItem{Encapsulate git(1), docker(1) and systemctl(1) (for controlling Caddy) with execa, to build and deploy Gradio projects.}
-    \resumeItem{Check if the repository exists, using Octokit and Hugging Face JS libraries.}
-  \resumeItemListEnd{}
-
-  % \resumeTrioHeading{If And Only If}{Next.js, TypeScript, Headless UI, Tailwind CSS, Zod, ConnectKit, wagmi}{}
-  % \resumeItemListStart{}
-  %   \resumeItem{A \textbf{CRUD application} exposed using a RESTful API made with Node.js}
-  %   \resumeItem{Exposed POST, GET, PATCH and DELETE HTTP methods using \textbf{Express}}
-  % \resumeItemListEnd{}
-
-  \resumeTrioHeading{Taro}{React, TypeScript}{\href{https://github.com/NervJS/taro}{\uline{Source Code}}}
-  \resumeItemListStart{}
-    \resumeItem{Triage issues on GitHub.}
-    \resumeItem{Seasonal contributor to the codebase.}
-  \resumeItemListEnd{}
-
-  \resumeTrioHeading{Taro UI}{Taro, React, TypeScript}{\href{https://github.com/NervJS/taro-ui}{\uline{Source Code}}}
-  \resumeItemListStart{}
-    \resumeItem{Triage issues on GitHub.}
-    \resumeItem{Seasonal contributor to the codebase.}
-  \resumeItemListEnd{}
-\resumeHeadingListEnd{}
-%--------------------------------------------
-
+\section{Key Technologies}
+\small{
+  TypeScript, React, Next.js, Vue, RTK Query, React Hook Form, Zod, AG Grid, JSON Forms, Tailwind CSS, Turborepo, pnpm, and Vitest; additional experience in Node.js services and Docker deployment.
+}
 
 %-----------EXPERIENCE-----------------------
-% Distill all your talking points to small bullet points which follow the pattern "challenge-action-result" for maximum efficiency. Try to quantify (use numbers) your points whenver possible, highlist words of importance
-
 \section{Experience}
 \resumeHeadingListStart{}
+  \resumeQuadHeading{Senior Frontend Engineer}{Oct 2023 -- Present}
+    {ETO Markets Ltd.}{Remote -- Shanghai, China}
+  \resumeItemListStart{}
+    \resumeItem{\textbf{Primary CRM frontend owner within a three-person frontend team, responsible for overall architecture, technology selection, and module boundaries}. Built the customer and partner CRM from scratch and maintained it through multiple redesigns, covering onboarding, trading accounts, funding, and partner workflows.}
+
+    \resumeProjectHeading{CRM --- Accounts \& Funding}
+    \resumeItem{\textbf{Extended funding interfaces to US dollar, US cent, and euro accounts}, aligning account/payment currencies and input units across channel limits, conversion estimates, and balance summaries. Retained dollar-denominated input for cent accounts and prevented stale exchange rates after currency changes.}
+    \resumeItem{Introduced decimal arithmetic to address floating-point errors in available wallet balances and aggregated profit/loss, with regression tests for these calculations.}
+    \resumeItem{Integrated reusable action-specific KYC checks and upgrade prompts across onboarding, deposits, withdrawals, and transfers, handling validation, failure, and upgrade-required states.}
+    \resumeItem{Adapted existing workflows for multiple trading servers, distinguishing display account numbers from unique account identities across account selection, detail navigation, and funding requests. Unified platform/server filter conversion while preserving existing business flows.}
+
+    \resumeProjectHeading{Frontend Engineering \& Ongoing Evolution}
+    \resumeItem{Production real-user monitoring: \textbf{desktop/mobile p75 LCP of 1.61/1.99 s and p75 INP of 104/186 ms} (Vercel Speed Insights, Oct 12--Nov 8, 2026, UTC).}
+    \resumeItem{Addressed \textbf{frequent whole-form re-renders} triggered by dependent fields and verification-code countdowns in multi-step onboarding. Used createFormControl to hold form state independently with field/step subscriptions, reducing unrelated component re-renders while preserving cross-step data synchronization and Zod validation.}
+    \resumeItem{Built \textbf{shared AG Grid capabilities across customer, trading, and funding views}: the common layer handles datasource adaptation, business column formatting, and filter conversion; pages retain business queries, column composition, and tree presentation configuration.}
+    \resumeItem{Selected RTK Query for centralized typed endpoints, using cache tags and Redux matchers to coordinate authentication, queries, and permissions through login recovery, logout cleanup, and customer upgrades. Applied optimistic updates with request-failure rollback to backend-asynchronous leverage changes, avoiding immediate stale refetches overwriting the interface.}
+    \resumeItem{Extracted utilities, components, and engineering configuration into independent shared packages \textbf{adopted by ETO+, CRM, and admin applications}, centralizing common implementations and publishing while business applications integrate through package dependencies.}
+    \resumeItem{Maintained an \textbf{eight-language} customer interface; split messages by business module and provided page-level message selection so pages receive only the required messages. Kept funding, account, and error copy localized as workflows evolved.}
+
+    \resumeProjectHeading{Australian CRM --- Dynamic Risk Questionnaires}
+    \resumeItem{Primarily responsible for adapting the CRM for the Australian market. \textbf{Led JSON Forms selection and the questionnaire API agreement}: the backend supplies structured question, option, and layout definitions; reusable custom renderers generate and validate single/multiple-choice questionnaires. Integrated staged assessments, results, and freeze states.}
+
+    \resumeProjectHeading{ETO+ --- Market Charts \& Strategy Analytics}
+    \resumeItem{Integrated TradingView Charting Library in the earlier ETO+ product, implementing a datafeed adapter for symbol search/resolution, historical candlestick/volume data and timestamp conversion, and streamed quote-to-bar updates. Encapsulated chart instance creation and disposal in a reusable React Hook.}
+    \resumeItem{Developed strategy profit/growth charts, period-based profit-sharing reports, and subscriber order details. Connected strategy/subscription/order drilldowns with account, date, symbol, order-type, and keyword filters.}
+  \resumeItemListEnd{}
 
   \resumeQuadHeading{Web Developer}{Nov 2020 -- Jun 2023}
-  {Qiubi Technology (Shanghai) Co., Ltd.}{Remote -- Shanghai, China}
+    {Qiubi Technology (Shanghai) Co., Ltd.}{Remote -- Shanghai, China}
 
-    \resumeItemListStart{}
-      \resumeItem{I added new features for an enhanced Civitai project, to allow users to use Ethereum wallet login. I created a custom \textbf{NextAuth.js Credentials Provider} and used \textbf{SIWE} for signature verification. \textbf{Web3Modal and wagmi} were used on the front-end to connect to the wallet. To implement the hosting of Gradio projects, I developed a back-end service using \textbf{H3}, validated environment variables and API parameters with \textbf{Zod}, and wrapped Git and Docker commands with \textbf{Execa} to package Gradio projects from GitHub or Hugging Face into Docker images, hosted on the server with custom ports and domains so that the front-end can display Gradio projects.}
+  \resumeItemListStart{}
+    \resumeProjectHeading{AmbrusStudio --- NFT Minting \& User Center}
+    \resumeItem{\textbf{Proposed and drove a Turborepo/pnpm workspace migration} to address duplicated cross-project maintenance. Extracted API and utility packages shared by React and Vue, kept React UI in a separate package, and migrated the React launcher from CRA to Vite.}
+    \resumeItem{Contributed from the early stages of the Vue minting app and React user center; adapted wagmi Core and Web3Modal HTML to Vue's reactive state for wallet and contract interactions, supporting \textbf{four NFT issuance rounds}.}
 
-      \resumeItem{Collaborated with our CTO to build a back-end service for a web3 blog toolkit. Using \textbf{NestJS, TypeORM, MySQL, and TypeScript}, I completed the back-end API for blog information, storage targets, and theme configuration, and integrated \textbf{Arweave} to store user post's metadata. I built a website generator based on \textbf{Hexo} using \textbf{Node.js}, which can automatically generate and deploy Hexo websites according to the presets provided by the back-end. Received 200 new registrations just on the first day.}
+    \resumeProjectHeading{W3itch --- Game Publishing Platform}
+    \resumeItem{Refactored publishing into file, cover, and screenshot subforms with shared React Hook Form context and session-scoped draft recovery. Fixed unstable component identity caused by creating styled components inside render functions.}
 
-      \resumeItem{I assisted a web3 MOBA game company, developing NFT minting websites and user center websites. I used \textbf{Vue.js, Headless UI, UnoCSS (a Tailwind CSS alternative), and TypeScript} to build the minting website. As Vue does not have a good wallet connection framework, I utilized the \textbf{Vue's Composition API} to encapsulate \textbf{Web3Modal HTML and wagmi Core} to achieve similar functionality as Web3Modal React. During my maintenance of this project, the company successfully conducted four rounds of NFT issuance activities. Together with my colleagues, we built the user center website using \textbf{React and TypeScript}. I split UI elements into components for efficient reuse and also helped optimize some \textbf{React Hooks} to improve page performance. To better reuse UI components and share business logic, I used \textbf{monorepo} to reorganize code from multiple projects into independent packages which solved problems such as copy-pasting and logic synchronization.}
-    \resumeItemListEnd{}
+    \resumeProjectHeading{AgentSwap --- Gradio Application Hosting}
+      \hfill \href{https://github.com/agentswap/hosting-worker}{\uline{Worker}}
+    \resumeItem{Integrated SIWE wallet login into a Next.js app and built a Node.js/H3 service to deploy GitHub/Hugging Face projects as Docker containers behind Caddy, handling container replacement, running-state checks, failure reporting, and temporary-directory cleanup.}
+
+    \resumeProjectHeading{Meta CMS --- Blog Backend \& Publishing Workers}
+      \hfill \href{https://github.com/Meta-Network/meta-cms-backend}{\uline{Backend}} $|$
+      \href{https://github.com/Meta-Network/meta-cms-worker}{\uline{Worker}}
+    \resumeItem{Collaborated with the CTO on a NestJS blog backend and Git/Hexo publishing workers. Extracted shared task types, backend communication, and status reporting for content generation and GitHub/Gitee publishing; the product recorded \textbf{200 first-day registrations}.}
+  \resumeItemListEnd{}
 
   \resumeQuadHeading{Web Developer}{Nov 2018 -- Oct 2020}
-  {Shanghai Hayi Information Technology Co., Ltd.}{Shanghai, China}
-
-    \resumeItemListStart{}
-      \resumeItem{I am responsible for the development of the company's WeChat Mini Program project. I utilize \textbf{Taro} to standardize the development process and to improve code reuse rate. With Taro's comprehensive support for React, I can easily handle the development and maintenance of different mini-program platforms, effectively reducing development costs. In addition, I also promote \textbf{TypeScript and ESLint} to improve code quality and reduce bugs during production. With my assistance, the company's projects have achieved more efficient development and higher quality code implementation.}
-
-      \resumeItem{I am responsible for customizing the October CMS theme for the company, using \textbf{TypeScript and Sass} to write front-end logic and styles, and using \textbf{Webpack and PostCSS} to package scripts and resource files. By removing messy script tags and style tags, I have reduced issues such as functional failures and style conflicts while increasing code maintainability. Additionally, by integrating commonly used October CMS components and styles into an npm package, I have achieved better code sharing which has improved team development efficiency. With my assistance, our clients have received a better user experience with higher quality project implementation.}
-    \resumeItemListEnd{}
+    {Shanghai Hayi Information Technology Co., Ltd.}{Shanghai, China}
+  \resumeItemListStart{}
+    \resumeItem{Developed and maintained WeChat Mini Programs with Taro and React, promoting TypeScript and ESLint to establish shared development conventions.}
+    \resumeItem{Customized October CMS themes with TypeScript and Sass; consolidated scripts and styles through Webpack and PostCSS to address conflicting styles and fragmented asset loading.}
+  \resumeItemListEnd{}
 
   \resumeQuadHeadingChild{Software Developer Intern}{Aug 2017 -- Feb 2018}
-
-    \resumeItemListStart{}
-      \resumeItem{Assisted lead developer maintaining and developing new features using C\# and ASP.NET Core.}
-    \resumeItemListEnd{}
-
+  \resumeItemListStart{}
+    \resumeItem{Assisted the lead developer with maintenance and feature development using C\# and ASP.NET Core.}
+  \resumeItemListEnd{}
 \resumeHeadingListEnd{}
-%---------------------------------------------
 
+%-----------OPEN SOURCE----------------------
+\section{Open Source Contributions}
+\resumeHeadingListStart{}
+  \resumeTrioHeading{Taro \& Taro UI}{React, TypeScript}{\href{https://github.com/NervJS/taro}{\uline{Taro}} $|$ \href{https://github.com/NervJS/taro-ui}{\uline{Taro UI}}}
+  \resumeItemListStart{}
+    \resumeItem{Fixed AST-based App configuration extraction when transformed class names differed from static-property assignment targets (\href{https://github.com/NervJS/taro/pull/5785}{\uline{\#5785}}); corrected unintended changes to miniprogramRoot during WeChat Mini Program plugin builds.}
+    \resumeItem{Added CommonJS distribution for Taro's API package and corrected published file inclusion across related packages (\href{https://github.com/NervJS/taro/pull/5991}{\uline{\#5991}}), alongside animation and storage API type improvements.}
+    \resumeItem{Fixed duplicate date keys across months in Taro UI's Calendar that prevented styles from updating; contributed component fixes, tests, release configuration changes, and GitHub issue triage.}
+  \resumeItemListEnd{}
+\resumeHeadingListEnd{}
 
-%-----------EDUCATION-------------------------
-% Mention your CGPA, if its good, in the first row of second column
-
+%-----------EDUCATION------------------------
 \section{Education}
-  \resumeHeadingListStart{}
-    \resumeQuadHeading{Shandong Vocational College of Information Technology}{Weifang, Shandong, China}
+\resumeHeadingListStart{}
+  \resumeQuadHeading{Shandong Vocational College of Information Technology}{Weifang, Shandong, China}
     {Software Engineering}{Jul 2015 -- Jul 2018}
-  \resumeHeadingListEnd{}
-%---------------------------------------------
-
-
-%----------------OTHERS----------------------
-% You can add your acheivements, accolades, certifications etc. here.
-
-%\section{Certifications}
-%  \resumeItemListStart{}
-%    \resumeItem{\href{https://dummy-certification.com}{\uline{Certified Web Developer by the W3C}}}
-%    \resumeItem{\href{https://dummy-certification.com}{\uline{Microsoft Certified: Azure Developer Associate}}}
-%    \resumeItem{\href{https://dummy-certification.com}{\uline{AWS Certified Developer - Associate}}}
-%  \resumeItemListEnd{}
-%--------------------------------------------
+\resumeHeadingListEnd{}
 
 \end{document}
